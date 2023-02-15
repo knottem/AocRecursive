@@ -80,7 +80,7 @@ class Aoc2(text : String = "passports.txt") {
                 "hcl" -> (value.matches(Regex("#[0-9a-f]{6}")))
                 "ecl" -> (value.matches(Regex("amb|blu|brn|gry|grn|hzl|oth")))
                 "pid" -> (value.matches(Regex("[0-9]{9}")))
-                else -> true
+                else -> true //cid eller CORRECT:CORRECT blir true
             }
         }
 
