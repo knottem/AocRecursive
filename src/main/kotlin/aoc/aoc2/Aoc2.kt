@@ -6,7 +6,7 @@ import java.io.File
 //version2 with the help of https://github.com/kotlin-hands-on/advent-of-code-2020/blob/master/src/day04/day4.kt
 class Aoc2(text : String = "passports.txt") {
 
-    private val input = File("src/main/kotlin/aoc/aoc2/$text").readText().trim().split("\n\n", "\r\n\r\n").map { it }
+    private val input = File("src/main/kotlin/aoc/aoc2/$text").readText().trim().split("\n\n", "\r\n\r\n").toList()
 
     private fun inputToListMap(): List<Map<String, String>> {
         val listOfMaps: MutableList<Map<String, String>> = mutableListOf()

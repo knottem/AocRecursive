@@ -8,13 +8,12 @@ import java.util.regex.Pattern
 
 class Aoc3(text: String = "input.txt") {
 
-    private val input = File("src/main/kotlin/aoc/aoc3/$text").readText().trim().split("\r\n", "\n").map { it }
+    private val input = File("src/main/kotlin/aoc/aoc3/$text").readText().trim().split("\r\n", "\n").toList()
 
     fun version1FirstProblem(): Int =
         input.count { c ->
             !c.contains("ab") && !c.contains("cd") && !c.contains("pq") && !c.contains("xy") &&
-                    c.count { it in setOf('a', 'e', 'i', 'o', 'u') } >= 3 &&
-                    c.zipWithNext().any { it.first == it.second }
+                    c.count { it in setOf('a', 'e', 'i', 'o', 'u') } >= 3 && c.zipWithNext().any { it.first == it.second }
         }
 
     fun version1SecondProblem(): Int {
