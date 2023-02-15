@@ -27,9 +27,8 @@ class Aoc2(text : String = "passports.txt") {
         input.count { c -> setOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid").all { f -> c.contains(f) } }
 
     fun version1SecondProblem(): Int {
-        val listOfMaps = inputToListMap()
         var total = 0
-        listOfMaps.forEach { c ->
+        inputToListMap().forEach { c ->
             var counter = 0
             c.forEach { d ->
                 when (d.key) {
@@ -54,6 +53,19 @@ class Aoc2(text : String = "passports.txt") {
         return total
     }
 
+
+    //version2
+    private fun inputToListMapV2(): List<Map<String, String>> {
+        return input.map { c ->
+            c.split("\n", "\r\n").flatMap { d ->
+                d.split(" ").map { e ->
+                    val (key, value) = e.split(":")
+                    key to value
+                }
+            }.toMap()
+        }
+    }
+
     private fun valid(map: Map<String, String>): Boolean =
         map.all { (key, value) ->
             when (key) {
@@ -74,7 +86,7 @@ class Aoc2(text : String = "passports.txt") {
         }
 
     private val validCheck = setOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
-    fun version2FirstProblem(): Int = inputToListMap().count { c -> validCheck.all { f -> c.contains(f) } }
-    fun version2SecondProblem(): Int = inputToListMap().count { c -> validCheck.all { f -> c.contains(f) && valid(c) } }
+    fun version2FirstProblem(): Int = inputToListMapV2().count { c -> validCheck.all { f -> c.contains(f) } }
+    fun version2SecondProblem(): Int = inputToListMapV2().count { c -> validCheck.all { f -> c.contains(f) && valid(c) } }
 
 }

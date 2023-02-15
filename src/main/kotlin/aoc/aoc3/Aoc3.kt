@@ -10,7 +10,6 @@ class Aoc3(text: String = "input.txt") {
 
     private val input = File("src/main/kotlin/aoc/aoc3/$text").readText().trim().split("\r\n", "\n").map { it }
 
-
     fun version1FirstProblem(): Int =
         input.count { c ->
             !c.contains("ab") && !c.contains("cd") && !c.contains("pq") && !c.contains("xy") &&
