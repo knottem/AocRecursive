@@ -1,5 +1,6 @@
 import aoc.aoc1.Aoc1
 import aoc.aoc2.Aoc2
+import aoc.aoc3.Aoc3
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -37,6 +38,23 @@ class AocTest {
         assertEquals(101, aoc2.version1SecondProblem())
         assertEquals(192, aoc2.version2FirstProblem())
         assertEquals(101, aoc2.version2SecondProblem())
+    }
+
+    @Test
+    fun aocThird(){
+        // test file
+        val aocTest = Aoc3("test.txt")
+        assertEquals(2, aocTest.version1FirstProblem())
+        assertEquals(1, aocTest.version1SecondProblem())
+        assertEquals(2, aocTest.version2FirstProblem())
+        assertEquals(1, aocTest.version2SecondProblem())
+
+        // correct answers
+        val aoc3 = Aoc3()
+        assertEquals(258, aoc3.version1FirstProblem())
+        assertEquals(53, aoc3.version1SecondProblem())
+        assertEquals(258, aoc3.version2FirstProblem())
+        assertEquals(53, aoc3.version2SecondProblem())
     }
 
 }
