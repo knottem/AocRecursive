@@ -6,6 +6,7 @@ hcl:#b6652a
 ecl:hzl
 pid:112040163
 cid:123
+CORRECT1:CORRECT2
 
 byr:1938
 iyr:2019
@@ -14,6 +15,7 @@ hgt:62in
 hcl:#b6652a
 ecl:oth
 pid:123456789
+CORRECT1:CORRECT2
 
 byr:1950
 iyr:2019
@@ -22,6 +24,7 @@ hgt:193cm
 hcl:#cfa07d
 ecl:brn
 pid:123456789
+CORRECT1:INCORRECT2
 
 byr:1950
 iyr:2019
@@ -30,6 +33,7 @@ hgt:190cm
 ecl:brn
 pid:123456789
 cid:123
+INCORRECT1:INCORRECT2
 
 byr:1919
 iyr:2019
@@ -38,4 +42,5 @@ hgt:62in
 hcl:#b6652a
 ecl:oth
 pid:123456789
+CORRECT1:INCORRECT2
 

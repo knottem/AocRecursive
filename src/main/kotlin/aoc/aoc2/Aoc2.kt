@@ -77,7 +77,6 @@ class Aoc2(text : String = "passports.txt") {
                 } else if (value.contains("in")) {
                     (value.replace("in", "").toInt() in 59..76)
                 } else false
-
                 "hcl" -> (value.matches(Regex("#[0-9a-f]{6}")))
                 "ecl" -> (value.matches(Regex("amb|blu|brn|gry|grn|hzl|oth")))
                 "pid" -> (value.matches(Regex("[0-9]{9}")))
