@@ -61,9 +61,9 @@ class Aoc4(text: String = "input.txt") {
         return cycle
     }
     fun getSumSecondVersion(): Int = getListOfValues().filterIndexed { index, _ -> index in set.map { it - 1 } }.withIndex().sumOf {  it.value * set.elementAt(it.index) }
-    fun getCrtSecondVersion(): String = getListOfValues().asSequence().mapIndexed { index, value -> index % 40 to value }
+    fun getCrtSecondVersion(): String = getListOfValues().asSequence().take(240)
+        .mapIndexed { index, value -> index % 40 to value }
         .map { (x, value) -> if (value in (x - 1)..(x + 1)) "#" else "." }
-        .take(240)
         .chunked(40)
         .joinToString("\n") { it.joinToString("") }
 

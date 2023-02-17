@@ -2,6 +2,7 @@ import aoc.aoc1.Aoc1
 import aoc.aoc2.Aoc2
 import aoc.aoc3.Aoc3
 import aoc.aoc4.Aoc4
+import aoc.aoc5.Aoc5
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -86,7 +87,18 @@ class AocTest {
                     "###...##...##..#..#..##..###...##..####."
         assertEquals(string2 , aoc4.getCrtFirstVersion(false))
         assertEquals(string2, aoc4.getCrtSecondVersion())
+    }
 
+    @Test
+    fun aocFifth(){
+        // test file
+        assertEquals(12, Aoc5("test.txt").getBlocksAwayFirstVersion())
+        assertEquals(4, Aoc5("test2.txt").getBlocksAwayFirstVisitedTwiceFirstVersion())
+
+        // correct answer
+        val aoc5 = Aoc5()
+        assertEquals(278, aoc5.getBlocksAwayFirstVersion())
+        assertEquals(161, aoc5.getBlocksAwayFirstVisitedTwiceFirstVersion())
     }
 
 }
