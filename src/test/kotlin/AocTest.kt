@@ -1,6 +1,7 @@
 import aoc.aoc1.Aoc1
 import aoc.aoc2.Aoc2
 import aoc.aoc3.Aoc3
+import aoc.aoc4.Aoc4
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -55,6 +56,29 @@ class AocTest {
         assertEquals(53, aoc3.version1SecondProblem())
         assertEquals(258, aoc3.version2FirstProblem())
         assertEquals(53, aoc3.version2SecondProblem())
+    }
+
+    @Test
+    fun aocFourth(){
+        // test file
+        val aocTest = Aoc4("test.txt")
+        assertEquals(13140, aocTest.getSumFirstVersion())
+        assertEquals(  "##..##..##..##..##..##..##..##..##..##..\n" +
+                                "###...###...###...###...###...###...###.\n" +
+                                "####....####....####....####....####....\n" +
+                                "#####.....#####.....#####.....#####.....\n" +
+                                "######......######......######......####\n" +
+                                "#######.......#######.......#######.....\n", aocTest.getCrtFirstVersion())
+
+        // correct answers
+        assertEquals(14920,Aoc4().getSumFirstVersion())
+        assertEquals(  "###..#..#..##...##...##..###..#..#.####.\n" +
+                                "#..#.#..#.#..#.#..#.#..#.#..#.#..#....#.\n" +
+                                "###..#..#.#....#..#.#....###..#..#...#..\n" +
+                                "#..#.#..#.#....####.#....#..#.#..#..#...\n" +
+                                "#..#.#..#.#..#.#..#.#..#.#..#.#..#.#....\n" +
+                                "###...##...##..#..#..##..###...##..####.\n", Aoc4().getCrtFirstVersion())
+
     }
 
 }
