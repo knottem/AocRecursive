@@ -3,6 +3,7 @@ import aoc.aoc2.Aoc2
 import aoc.aoc3.Aoc3
 import aoc.aoc4.Aoc4
 import aoc.aoc5.Aoc5
+import aoc.aoc6.Aoc6
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -94,11 +95,32 @@ class AocTest {
         // test file
         assertEquals(12, Aoc5("test.txt").getBlocksAwayFirstVersion())
         assertEquals(4, Aoc5("test2.txt").getBlocksAwayFirstVisitedTwiceFirstVersion())
+        assertEquals(12, Aoc5("test.txt").getBlocksAwaySecondVersion())
+        assertEquals(4, Aoc5("test2.txt").getBlocksAwayFirstVisitedTwiceSecondVersion())
 
         // correct answer
         val aoc5 = Aoc5()
         assertEquals(278, aoc5.getBlocksAwayFirstVersion())
         assertEquals(161, aoc5.getBlocksAwayFirstVisitedTwiceFirstVersion())
+        assertEquals(278, aoc5.getBlocksAwaySecondVersion())
+        assertEquals(161, aoc5.getBlocksAwayFirstVisitedTwiceSecondVersion())
+    }
+
+    @Test
+    fun aocSixth(){
+        // test file
+        val aocTest = Aoc6("test.txt")
+        assertEquals(1, aocTest.part1V1())
+        assertEquals(0, aocTest.part2V1())
+        assertEquals(1, aocTest.part1V2())
+        assertEquals(0, aocTest.part2V2())
+
+        // correct answers
+        val aoc6 = Aoc6()
+        assertEquals(966, aoc6.part1V1())
+        assertEquals(628, aoc6.part2V1())
+        assertEquals(966, aoc6.part1V2())
+        assertEquals(628, aoc6.part2V2())
     }
 
 }

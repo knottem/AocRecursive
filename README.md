@@ -10,7 +10,8 @@ This project includes solutions to the following Advent of Code puzzles:
 2.  [Day 4: Passport Processing (2020)](https://adventofcode.com/2020/day/4)
 3.  [Day 5: Doesn't He Have Intern-Elves For This? (2015)](https://adventofcode.com/2015/day/5)
 4.  [Day 10: Cathode-Ray Tube (2022)](https://adventofcode.com/2022/day/10)
-5.  [Day 1: No Time for a Taxicab (2016)](https://adventofcode.com/2016/day/1)<br />
+5.  [Day 1: No Time for a Taxicab (2016)](https://adventofcode.com/2016/day/1)
+6.  [Day 4: Secure Container (2019)](https://adventofcode.com/2019/day/4)<br />
 
 Each puzzle solution is located in a separate package.
 

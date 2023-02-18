@@ -21,12 +21,12 @@ För att bli godkänd på uppgiften måste du använda rekursion.
 
 class Tomte (private val name : String = "") {
 
-    fun getUnderlings(tomte: String, res: MutableList<String>): List<String> {
+    fun getUnderlingsOldV1(tomte: String, res: MutableList<String>): List<String> {
         val tomteList = tomtarna[tomte]
         if (tomteList != null) {
             for (t in tomteList) {
                 res.add(t.name)
-                getUnderlings(t.name, res)
+                getUnderlingsOldV1(t.name, res)
             }
         }
         return res
@@ -46,7 +46,7 @@ class Tomte (private val name : String = "") {
         }
         return listOf()
     }
-    fun getUnderlings(tomte: String): List<String> = tomtarna[tomte]?.flatMap { listOf(it.name) + getUnderlingsOldV3(it.name) } ?: listOf()
+    fun getUnderlings(tomte: String): List<String> = tomtarna[tomte]?.flatMap { listOf(it.name) + getUnderlings(it.name) } ?: listOf()
 
 }
 
@@ -64,7 +64,7 @@ fun main() {
     val text = "Tomten"
 
     val start = System.nanoTime()
-    println(tomte.getUnderlings(text,  mutableListOf()))
+    println(tomte.getUnderlingsOldV1(text,  mutableListOf()))
     val end = System.nanoTime()
     println("Version 1 Time: ${end - start} ns")
 
