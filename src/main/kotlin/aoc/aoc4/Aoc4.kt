@@ -11,6 +11,7 @@ class Cpu {
     var value = 1
 }
 
+@Suppress("DuplicatedCode")
 class Aoc4(text: String = "input.txt") {
 
     private val input = File("src/main/kotlin/aoc/aoc4/$text").readLines().toList()
@@ -34,7 +35,15 @@ class Aoc4(text: String = "input.txt") {
     }
 
     fun getCrtFirstVersion(showPrintln: Boolean): String {
-        val sprite = getListOfValues()
+        val cpu = Cpu()
+        val sprite = mutableListOf(cpu.value)
+        input.forEach {
+            sprite.add(cpu.value)
+            if (it.startsWith("addx")) {
+                cpu.value += it.replace("addx ", "").toInt()
+                sprite.add(cpu.value)
+            }
+        }
         var output = ""
         for (i in 0 until 240) {
             val x = i % 40
@@ -43,7 +52,7 @@ class Aoc4(text: String = "input.txt") {
             if (x == 39) {
                 output += if (i == 239) "" else "\n"
             }
-            if (showPrintln) println("Pixel: $x Sprite location: ${sprite[i]}  x = ${x - 1}, $x, ${x + 1}   $isPixelLit")
+            if (showPrintln) println("Pixel: $x Sprite location: ${sprite[i]} = ${x - 1}, $x, ${x + 1} is $isPixelLit")
         }
         return output
     }
@@ -66,5 +75,9 @@ class Aoc4(text: String = "input.txt") {
         .map { (x, value) -> if (value in (x - 1)..(x + 1)) "#" else "." }
         .chunked(40)
         .joinToString("\n") { it.joinToString("") }
+}
 
+fun main() {
+    val aoc4 = Aoc4()
+    println(aoc4.getCrtFirstVersion(true))
 }
