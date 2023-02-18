@@ -76,8 +76,6 @@ class Aoc1(text : String = "input.txt") {
         return test2.sortedDescending().take(3).sum()
     }
 
-
-
 }
 
 
