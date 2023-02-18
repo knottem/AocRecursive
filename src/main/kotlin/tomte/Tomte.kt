@@ -32,13 +32,22 @@ class Tomte (private val name : String = "") {
         return res
     }
 
-    fun getUnderlingsV2(tomte: String): List<String> {
+    fun getUnderlingsOldV2(tomte: String): List<String> {
         val tomteList = tomtarna[tomte]
         if (tomteList != null) {
-            return tomteList.flatMap { listOf(it.name) + getUnderlingsV2(it.name) }
+            return tomteList.flatMap { listOf(it.name) + getUnderlingsOldV2(it.name) }
         }
         return listOf()
     }
+
+    fun getUnderlingsOldV3(tomte: String): List<String> {
+        if (tomtarna[tomte] != null) {
+            return tomtarna[tomte]?.flatMap { listOf(it.name) + getUnderlingsOldV3(it.name) } ?: listOf()
+        }
+        return listOf()
+    }
+    fun getUnderlings(tomte: String): List<String> = tomtarna[tomte]?.flatMap { listOf(it.name) + getUnderlingsOldV3(it.name) } ?: listOf()
+
 }
 
 val tomtarna = mapOf(
@@ -51,7 +60,27 @@ val tomtarna = mapOf(
     "Myran" to listOf(Tomte("Bladlusen")))
 
 fun main() {
-    val lista = Tomte().getUnderlingsV2("Räven")
-    println(lista)
+    val tomte = Tomte()
+    val text = "Tomten"
+
+    val start = System.nanoTime()
+    println(tomte.getUnderlings(text,  mutableListOf()))
+    val end = System.nanoTime()
+    println("Version 1 Time: ${end - start} ns")
+
+    val start2 = System.nanoTime()
+    println(tomte.getUnderlingsOldV2(text))
+    val end2 = System.nanoTime()
+    println("Version 2 Time: ${end2 - start2} ns")
+
+    val start3 = System.nanoTime()
+    println(tomte.getUnderlingsOldV3(text))
+    val end3 = System.nanoTime()
+    println("Version 3 Time: ${end3 - start3} ns")
+
+    val start4 = System.nanoTime()
+    println(tomte.getUnderlings(text))
+    val end4 = System.nanoTime()
+    println("Version 4 Time: ${end4 - start4} ns")
 }
 
