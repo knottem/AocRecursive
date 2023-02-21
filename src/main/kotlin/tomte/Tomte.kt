@@ -35,7 +35,7 @@ class Tomte (private val name : String = "") {
     fun getUnderlingsOldV2(tomte: String): List<String> {
         val tomteList = tomtarna[tomte]
         if (tomteList != null) {
-            return tomteList.flatMap { listOf(it.name) + getUnderlingsOldV2(it.name) }
+            return tomteList?.flatMap { listOf(it.name) + getUnderlingsOldV2(it.name) } ?: listOf()
         }
         return listOf()
     }
@@ -49,7 +49,6 @@ class Tomte (private val name : String = "") {
     fun getUnderlings(tomte: String): List<String> = tomtarna[tomte]?.flatMap { listOf(it.name) + getUnderlings(it.name) } ?: listOf()
 
 }
-
 val tomtarna = mapOf(
     "Tomten" to listOf(Tomte("Glader"), Tomte("Butter")),
     "Glader" to listOf(Tomte("Tröger"), Tomte("Trötter"), Tomte("Blyger")),
@@ -58,6 +57,7 @@ val tomtarna = mapOf(
     "Skumtomten" to listOf(Tomte("Dammråttan")),
     "Räven" to listOf(Tomte("Gråsuggan"), Tomte("Myran")),
     "Myran" to listOf(Tomte("Bladlusen")))
+
 
 fun main() {
     val tomte = Tomte()

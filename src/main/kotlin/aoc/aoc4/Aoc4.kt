@@ -52,7 +52,7 @@ class Aoc4(text: String = "input.txt") {
             if (x == 39) {
                 output += if (i == 239) "" else "\n"
             }
-            if (showPrintln) println("Pixel: $x Sprite location: ${sprite[i]} = ${x - 1}, $x, ${x + 1} is $isPixelLit")
+            if (showPrintln) println("Pixel: $x Sprite location: ${sprite[x]} = ${x - 1}, $x, ${x + 1} is $isPixelLit")
         }
         return output
     }
@@ -69,7 +69,8 @@ class Aoc4(text: String = "input.txt") {
         }
         return cycle
     }
-    fun getSumSecondVersion(): Int = getListOfValues().filterIndexed { index, _ -> index in set.map { it - 1 } }.withIndex().sumOf {  it.value * set.elementAt(it.index) }
+    fun getSumSecondVersion(): Int = getListOfValues().filterIndexed { index, _ -> index in set.map { it - 1 } }
+        .withIndex().sumOf {  it.value * set.elementAt(it.index) }
     fun getCrtSecondVersion(): String = getListOfValues().asSequence().take(240)
         .mapIndexed { index, value -> index % 40 to value }
         .map { (x, value) -> if (value in (x - 1)..(x + 1)) "#" else "." }
